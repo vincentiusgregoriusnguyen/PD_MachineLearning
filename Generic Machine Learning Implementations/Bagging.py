@@ -92,7 +92,7 @@ def main():
         y_train, y_test = y[train_index], y[test_index]
         sm = SMOTE(random_state=42)
         X_res, y_res = sm.fit_sample(X_train, y_train)
-        tempMLA = AdaBoostClassifier();
+        tempMLA = BaggingClassifier();
         tempMLA.fit(X_res, y_res);
         predictions = tempMLA.predict(X_test);
         roc_auc.append(roc_auc_score(y_test, predictions));
